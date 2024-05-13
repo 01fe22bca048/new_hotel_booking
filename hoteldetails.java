@@ -1,16 +1,12 @@
 package hotel_booking;
 
-import java.util.*;
-
 public class hoteldetails {
 
     public static void main(String args[]) {
-        Scanner sc = new Scanner(System.in);
+        customer_details c1 = new customer_details("John Doe", "2024-05-14", 101);
+        c1.print_details();
 
-        customer_details c1 = new customer_details();
-        c1.print_details(sc);
-
-        roomdetails r1 = new roomdetails();
+        roomdetails r1 = new roomdetails(c1.room_no);
         r1.print();
     }
 
@@ -19,24 +15,17 @@ public class hoteldetails {
         String booking;
         int room_no;
 
-        public void print_details(Scanner sc) {
+        // Constructor with parameters for compile-time input
+        public customer_details(String name, String booking, int room_no) {
+            this.name = name;
+            this.booking = booking;
+            this.room_no = room_no;
+        }
 
-            System.out.println("Enter customer name");
-            name = sc.next();
-
-            System.out.println("Enter date of booking");
-            booking = sc.next();
-
-            System.out.println("Enter Room number");
-            room_no = sc.nextInt();
-
+        public void print_details() {
             System.out.println("Entered Customer Name is : " + name);
             System.out.println("Entered Customer Date of booking  is : " + booking);
             System.out.println("Entered Customer Room number is : " + room_no);
-
         }
     }
-
-    
-    
 }
